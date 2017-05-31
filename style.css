@@ -1,4 +1,4 @@
-#combobox-row {
+.combobox-row {
 	width:385px;
 	height:30px;
 	font-size:18px;
@@ -22,7 +22,7 @@
 	float:right;
 	display:inline;
 }
-#combobox-list {
+.combobox-list {
 	display:none;
 	width:400px;
 	max-height:300px;
@@ -32,20 +32,20 @@
 	font-family: Arial;
 }
 
-#combobox-list ul{
+.combobox-list ul{
 	list-style-type:none;
 	margin-top:10px;
 	margin-bottom:10px;
 	padding:0;
 }
 
-#combobox-list ul li{
+.combobox-list ul li{
 	font-size:16px;
 	line-height:26px;
 	padding-left:20px;
 
 }
-#combobox-list ul li:hover{
+.combobox-list ul li:hover{
 background-color:lightgray;
 cursor:pointer;
 }
