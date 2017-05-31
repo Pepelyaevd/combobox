@@ -1,0 +1,46 @@
+#combobox {
+	width:385px;
+	height:30px;
+	font-size:18px;
+	padding-left:15px;
+	border:1px solid grey;
+	line-height:30px;
+	font-family: Arial;
+	cursor:default;
+}
+#combobox span{
+	width:20px;
+	height:20px;
+	float:right;
+	margin-top:7px;
+}
+#comboboxlist {
+	display:none;
+	width:400px;
+	max-height:300px;
+	font-size:16px;
+	margin-top:5px;
+	border:1px solid lightgray;
+	font-family: Arial;
+}
+
+#comboboxlist ul{
+	list-style-type:none;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:0;
+}
+
+#comboboxlist ul li{
+	font-size:16px;
+	line-height:26px;
+	padding-left:20px;
+
+}
+#comboboxlist ul li:hover{
+background-color:lightgray;
+cursor:pointer;
+}
+
+
+
