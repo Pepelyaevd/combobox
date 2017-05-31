@@ -9,7 +9,7 @@ $(document).ready(function () {
 	});
 	$('#combobox-list').children('ul').children('li').on('mousedown', function () {
 		comboboxvalue=$(this).text();
-		$('#combobox-value').text(comboboxvalue);;
+		$('.combobox-row-value').text(comboboxvalue);;
 	});
 	
 	
