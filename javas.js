@@ -1,14 +1,15 @@
 $(document).ready(function () {
-	$('#combobox').on('mousedown', function () {
+	
+	var comboboxvalue;
+	
+	$('#comboboxrow').on('mousedown', function () {
 		//alert("asd");
 		$('#comboboxlist').toggle('fast');
 		return false;
 	});
 	$('#comboboxlist').children('ul').children('li').on('mousedown', function () {
-		//alert("asd");
-		var li=text.toElement;
-		var temp=x.value; 
-		return false;
+		comboboxvalue=$(this).text();
+		$('#comboboxrow').text(comboboxvalue);;
 	});
 	
 	

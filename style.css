@@ -1,4 +1,4 @@
-#combobox {
+#comboboxrow {
 	width:385px;
 	height:30px;
 	font-size:18px;
@@ -8,7 +8,7 @@
 	font-family: Arial;
 	cursor:default;
 }
-#combobox span{
+#comboboxrow span{
 	width:20px;
 	height:20px;
 	float:right;
