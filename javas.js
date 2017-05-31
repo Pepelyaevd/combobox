@@ -2,19 +2,19 @@ $(document).ready(function () {
 	
 	var comboboxvalue;
 	
-	$('#comboboxrow').on('mousedown', function () {
+	$('#combobox-row').on('mousedown', function () {
 		//alert("asd");
-		$('#comboboxlist').toggle('fast');
+		$('#combobox-list').toggle('fast');
 		return false;
 	});
-	$('#comboboxlist').children('ul').children('li').on('mousedown', function () {
+	$('#combobox-list').children('ul').children('li').on('mousedown', function () {
 		comboboxvalue=$(this).text();
-		$('#comboboxrow').text(comboboxvalue);;
+		$('#combobox-value').text(comboboxvalue);;
 	});
 	
 	
 	
-	$(window,document).on("mousedown",function(){$('#comboboxlist').hide('fast');});
+	$(window,document).on("mousedown",function(){$('#combobox-list').slideUp('fast');});
 
 });
 

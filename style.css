@@ -1,4 +1,4 @@
-#comboboxrow {
+#combobox-row {
 	width:385px;
 	height:30px;
 	font-size:18px;
@@ -7,14 +7,22 @@
 	line-height:30px;
 	font-family: Arial;
 	cursor:default;
+	
+	
 }
-#comboboxrow span{
+.combobox-row-value{
+	display:inline;
+}
+
+.combobox-row-icon{
 	width:20px;
 	height:20px;
-	float:right;
 	margin-top:7px;
+	margin-right:5px;
+	float:right;
+	display:inline;
 }
-#comboboxlist {
+#combobox-list {
 	display:none;
 	width:400px;
 	max-height:300px;
@@ -24,20 +32,20 @@
 	font-family: Arial;
 }
 
-#comboboxlist ul{
+#combobox-list ul{
 	list-style-type:none;
 	margin-top:10px;
 	margin-bottom:10px;
 	padding:0;
 }
 
-#comboboxlist ul li{
+#combobox-list ul li{
 	font-size:16px;
 	line-height:26px;
 	padding-left:20px;
 
 }
-#comboboxlist ul li:hover{
+#combobox-list ul li:hover{
 background-color:lightgray;
 cursor:pointer;
 }
