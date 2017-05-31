@@ -6,7 +6,7 @@
 	border:1px solid grey;
 	line-height:30px;
 	font-family: Arial;
-	cursor:default;
+	cursor:pointer;
 	
 	
 }
@@ -30,6 +30,7 @@
 	margin-top:5px;
 	border:1px solid lightgray;
 	font-family: Arial;
+
 }
 
 .combobox-list ul{
