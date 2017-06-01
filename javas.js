@@ -1,4 +1,5 @@
-var options=[{id:1, name:"День"},{id:2, name:"Месяц"},{id:3, name:"Год"}]
+var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"}]
+var selectedoption;
 
 $(document).ready(function () {
 	
@@ -11,19 +12,28 @@ $(document).ready(function () {
 		$('<span>').addClass('combobox-row-icon ui-icon ui-icon-triangle-1-s').appendTo(comboboxrow);
 		var comboboxlist=$('<div>').addClass('combobox-list').appendTo(container);
 		var comboboxlistul=$('<ul>').appendTo(comboboxlist);
-		$('<li>').text("option 1").appendTo(comboboxlistul);
-		$('<li>').text("option 2").appendTo(comboboxlistul);
-		$('<li>').text("option 3").appendTo(comboboxlistul);
-		$('<li>').text("option 4").appendTo(comboboxlistul);
-			
+		
+		for (var item in options) 
+			{
+				$('<li>').text(options[item].name).attr('data-id', options[item].id).appendTo(comboboxlistul);
+			}
+		
 	comboboxrow.on('mousedown', function () {
 		//alert("asd");
 		comboboxlist.toggle('fast');
 		return false;
 	});
 	comboboxlist.children('ul').children('li').on('mousedown', function () {
-		comboboxvalue=$(this).text();
-		comboboxrowvalue.text(comboboxvalue);
+		selectedoptionid=$(this).attr('data-id');
+		for (var item in options) 
+			{
+				console.log(item)
+				if (options[item].id==selectedoptionid) {
+					selectedoption=options[item];
+				}
+			}
+		comboboxrowvalue.text(selectedoption.name);
+		debugger;
 	});
 	
 	
