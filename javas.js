@@ -36,15 +36,14 @@ $(document).ready(function () {
 	
 	//search
 	comboboxlistinput.on('keyup', function () {
-		var searchtext=comboboxlistinput.val();
+		var searchtext=comboboxlistinput.val().toLowerCase();
 		console.log(searchtext);
 		for (var item in options) 
-			{
-				
-				if (options[item].name.indexOf(searchtext)==-1) {
-				comboboxlistul.children('li[data-id]='+'"'+options[item].id+'"').hide();
+			{				
+				if (options[item].name.indexOf(searchtext).toLowerCase()==-1) {
+				comboboxlistul.children('li[data-id="'+options[item].id+'"]').hide();
 				}
-				else {comboboxlistul.children('li[data-id]='+'"'+options[item].id+'"').show();
+				else {comboboxlistul.children('li[data-id="'+options[item].id+'"]').show();
 				}				
 			}
 	});
