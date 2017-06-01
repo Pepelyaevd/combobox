@@ -7,22 +7,19 @@ $(document).ready(function () {
 	
 	var container=$('#combobox');
 		
-		var comboboxrow=$('<div>').addClass('combobox-row').appendTo(container);
-		var comboboxrowvalue=$('<span>').addClass('combobox-row-value').text("Select option").appendTo(comboboxrow);
-		$('<span>').addClass('combobox-row-icon ui-icon ui-icon-triangle-1-s').appendTo(comboboxrow);
-		var comboboxlist=$('<div>').addClass('combobox-list').appendTo(container);
-		$('<span>').addClass('combobox-list-input-icon ui-icon ui-icon-search').appendTo(comboboxlist);
-		var comboboxlistinput=$('<input type="text" placeholder="Search items">').addClass('combobox-list-input').appendTo(comboboxlist);
-		
-		var comboboxlistul=$('<ul>').appendTo(comboboxlist);
-		
-		for (var item in options) 
-			{
-				$('<li>').text(options[item].name).attr('data-id', options[item].id).appendTo(comboboxlistul);
-			}
+	var comboboxrow=$('<div>').addClass('combobox-row').appendTo(container);
+	var comboboxrowvalue=$('<span>').addClass('combobox-row-value').text("Select option").appendTo(comboboxrow);
+	$('<span>').addClass('combobox-row-icon ui-icon ui-icon-triangle-1-s').appendTo(comboboxrow);
+	var comboboxlist=$('<div>').addClass('combobox-list').appendTo(container);
+	$('<span>').addClass('combobox-list-input-icon ui-icon ui-icon-search').appendTo(comboboxlist);
+	var comboboxlistinput=$('<input type="text" placeholder="Search items">').addClass('combobox-list-input').appendTo(comboboxlist);
+	var comboboxlistul=$('<ul>').appendTo(comboboxlist);
+	for (var item in options) 
+	{
+		$('<li>').text(options[item].name).attr('data-id', options[item].id).appendTo(comboboxlistul);
+	}
 		
 	comboboxrow.on('click', function () {
-		//alert("asd");
 		comboboxlist.toggle('fast');
 		return false;
 	});
@@ -30,7 +27,6 @@ $(document).ready(function () {
 		selectedoptionid=$(this).attr('data-id');
 		for (var item in options) 
 			{
-				console.log(item)
 				if (options[item].id==selectedoptionid) {
 					selectedoption=options[item];
 				}
@@ -38,8 +34,22 @@ $(document).ready(function () {
 		comboboxrowvalue.text(selectedoption.name);
 	});
 	
-	
+	//search
+	comboboxlistinput.on('keyup', function () {
+		var searchtext=comboboxlistinput.val();
+		console.log(searchtext);
+	for (var item in options) 
+			{
+				if (options[item].name.indexOf(searchtext)==-1) {
+				comboboxlistul.children('li[data-id]='+options[item].id).hide();}
+				else {comboboxlistul.children('li[data-id]='+options[item].id).show();}
+				
+			}
 
+	});
+	
+	
+	
 	comboboxlistinput.on("click",function(){return false;});
 	$(window,document).on("click",function(){comboboxlist.slideUp('fast');});
 	
