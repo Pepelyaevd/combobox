@@ -38,14 +38,15 @@ $(document).ready(function () {
 	comboboxlistinput.on('keyup', function () {
 		var searchtext=comboboxlistinput.val();
 		console.log(searchtext);
-	for (var item in options) 
+		for (var item in options) 
 			{
-				if (options[item].name.indexOf(searchtext)==-1) {
-				comboboxlistul.children('li[data-id]='+options[item].id).hide();}
-				else {comboboxlistul.children('li[data-id]='+options[item].id).show();}
 				
+				if (options[item].name.indexOf(searchtext)==-1) {
+				comboboxlistul.children('li[data-id]='+'"'+options[item].id+'"').hide();
+				}
+				else {comboboxlistul.children('li[data-id]='+'"'+options[item].id+'"').show();
+				}				
 			}
-
 	});
 	
 	
