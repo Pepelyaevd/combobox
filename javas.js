@@ -37,10 +37,10 @@ $(document).ready(function () {
 	//search
 	comboboxlistinput.on('keyup', function () {
 		var searchtext=comboboxlistinput.val().toLowerCase();
-		console.log(searchtext);
+		console.log('searchtext= '+searchtext);
 		for (var item in options) 
 			{				
-				if (options[item].name.indexOf(searchtext).toLowerCase()==-1) {
+				if (options[item].name.toLowerCase().indexOf(searchtext)==-1) {
 				comboboxlistul.children('li[data-id="'+options[item].id+'"]').hide();
 				}
 				else {comboboxlistul.children('li[data-id="'+options[item].id+'"]').show();
