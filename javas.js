@@ -1,4 +1,4 @@
-var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"},{id:3, name:"Option3"},{id:4, name:"Option4"},{id:5, name:"Option5"}];
+var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"},{id:4, name:"Option4"},{id:5, name:"Option5"}];
 var selectedoption;
 
 $(document).ready(function () {
@@ -26,6 +26,8 @@ $(document).ready(function () {
 	});
 	comboboxlist.children('ul').children('li').on('mousedown', function () {
 		selectedoptionid=$(this).attr('data-id');
+		comboboxlist.find("ul>li.selected").removeClass('selected');
+		$(this).addClass('selected');
 		for (var item in options) 
 			{
 				if (options[item].id==selectedoptionid) {

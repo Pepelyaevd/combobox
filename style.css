@@ -68,9 +68,12 @@
 	font-size:16px;
 	line-height:26px;
 	padding-left:20px;
-
-
 }
+
+.combobox-list .selected{
+color:red;
+}
+
 .combobox-list ul li:hover{
 background-color:lightgray;
 cursor:pointer;
