@@ -60,12 +60,15 @@
 	margin-top:10px;
 	margin-bottom:10px;
 	padding:0;
+	max-height:100px;
+	overflow:overlay;
 }
 
 .combobox-list ul li{
 	font-size:16px;
 	line-height:26px;
 	padding-left:20px;
+
 
 }
 .combobox-list ul li:hover{

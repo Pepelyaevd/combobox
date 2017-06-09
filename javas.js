@@ -1,4 +1,4 @@
-var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"}];
+var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"},{id:3, name:"Option3"},{id:4, name:"Option4"},{id:5, name:"Option5"}];
 var selectedoption;
 
 $(document).ready(function () {
