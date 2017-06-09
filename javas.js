@@ -1,4 +1,4 @@
-var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"}]
+var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"}];
 var selectedoption;
 
 $(document).ready(function () {
@@ -18,7 +18,8 @@ $(document).ready(function () {
 	{
 		$('<li>').text(options[item].name).attr('data-id', options[item].id).appendTo(comboboxlistul);
 	}
-		
+	var comboboxlisttext=$('<div>').addClass('combobox-list-text').text("No matches found").appendTo(comboboxlist).hide();
+				
 	comboboxrow.on('click', function () {
 		comboboxlist.toggle('fast');
 		return false;
@@ -38,15 +39,24 @@ $(document).ready(function () {
 	comboboxlistinput.on('keyup', function () {
 		var searchtext=comboboxlistinput.val().toLowerCase();
 		console.log('searchtext= '+searchtext);
+		var hasVisibleElements=false;
 		for (var item in options) 
 			{				
 				if (options[item].name.toLowerCase().indexOf(searchtext)==-1) {
 				comboboxlistul.children('li[data-id="'+options[item].id+'"]').hide();
 				}
 				else {comboboxlistul.children('li[data-id="'+options[item].id+'"]').show();
-				}				
+				hasVisibleElements=true;
+				}		
 			}
+		if (hasVisibleElements==false) {
+			comboboxlisttext.show();
+		}
+		else {comboboxlisttext.hide();
+		}
+		
 	});
+	//добавить текст, если поиск ничего не нашел
 	
 	
 	
