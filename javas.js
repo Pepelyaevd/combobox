@@ -1,7 +1,10 @@
-var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"},{id:4, name:"Option4"},{id:5, name:"Option5"}];
-var selectedoption;
+
 
 $(document).ready(function () {
+	var options=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"},{id:4, name:"Option4"},{id:5, name:"Option5"}];
+	var selectedoptions=[];
+	var multipleSelect=true;
+	
 	
 	var comboboxvalue;
 	var isCollapsed=true;
@@ -31,20 +34,49 @@ $(document).ready(function () {
 			isCollapsed=true;
 		}
 	});
-	comboboxlist.children('ul').children('li').on('mousedown', function () {
-		selectedoptionid=$(this).attr('data-id');
-		comboboxlist.find("ul>li.selected").removeClass('selected');
-		$(this).addClass('selected');
+	function findById(id, options) {
+		var a;
 		for (var item in options) 
 			{
-				if (options[item].id==selectedoptionid) {
-					selectedoption=options[item];
+				if (options[item].id==id) {
+					a=options[item];
+					break;
 				}
 			}
-		comboboxrowvalue.text(selectedoption.name);
-		isCollapsed=false;
+		return a;
+	}
+	comboboxlist.children('ul').children('li').on('mousedown', function () {
+		var selectedOptionId=$(this).attr('data-id');
+		var selectedElem=findById(selectedOptionId,options);
+		
+		if (multipleSelect==false) {
+			comboboxlist.find("ul>li.selected").removeClass('selected');
+			selectedoptions=[selectedElem];	
+			isCollapsed=false;
+		}
+		else {	
+			selectedoptions.push(selectedElem);
+			isCollapsed=true;
+		}
+		$(this).addClass('selected');
+		updateComboboxRowValue(selectedoptions);	
 	});
-	
+	function updateComboboxRowValue (selectedoptions) {
+		if (selectedoptions.length==0) {
+			comboboxrowvalue.text("Select option");
+		}
+		else {
+			var names = [];
+			for (var i in selectedoptions)
+			{
+				var item = selectedoptions[i];
+				names.push(item.name);
+			}
+			comboboxrowvalue.text(names.join());
+			
+		}
+		
+	}
 	//search
 	comboboxlistinput.on('keyup', function () {
 		var searchtext=comboboxlistinput.val().toLowerCase();
@@ -69,11 +101,16 @@ $(document).ready(function () {
 	
 	
 	
-	comboboxlistinput.on("click",function(){return false;});
+	comboboxlistinput.on("click",function(){
+		return false;
+	});
+	
+	
+	
 	$(window,document).on("click",function(){
 		if (isCollapsed==false) {
-		comboboxlist.slideUp('fast');
-		isCollapsed=true;		
+			comboboxlist.slideUp('fast');
+			isCollapsed=true;		
 		}
 	});
 });
