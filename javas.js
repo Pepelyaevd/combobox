@@ -4,9 +4,9 @@ var selectedoption;
 $(document).ready(function () {
 	
 	var comboboxvalue;
+	var isCollapsed=true;
 	
-	var container=$('#combobox');
-		
+	var container=$('#combobox');		
 	var comboboxrow=$('<div>').addClass('combobox-row').appendTo(container);
 	var comboboxrowvalue=$('<span>').addClass('combobox-row-value').text("Select option").appendTo(comboboxrow);
 	$('<span>').addClass('combobox-row-icon ui-icon ui-icon-triangle-1-s').appendTo(comboboxrow);
@@ -21,8 +21,15 @@ $(document).ready(function () {
 	var comboboxlisttext=$('<div>').addClass('combobox-list-text').text("No matches found").appendTo(comboboxlist).hide();
 				
 	comboboxrow.on('click', function () {
-		comboboxlist.toggle('fast');
+		if (isCollapsed==true) {
+		comboboxlist.slideDown('fast');
+		isCollapsed=false;
 		return false;
+		}
+		else {
+			comboboxlist.slideUp('fast');
+			isCollapsed=true;
+		}
 	});
 	comboboxlist.children('ul').children('li').on('mousedown', function () {
 		selectedoptionid=$(this).attr('data-id');
@@ -35,6 +42,7 @@ $(document).ready(function () {
 				}
 			}
 		comboboxrowvalue.text(selectedoption.name);
+		isCollapsed=false;
 	});
 	
 	//search
@@ -58,12 +66,15 @@ $(document).ready(function () {
 		}
 		
 	});
-	//добавить текст, если поиск ничего не нашел
 	
 	
 	
 	comboboxlistinput.on("click",function(){return false;});
-	$(window,document).on("click",function(){comboboxlist.slideUp('fast');});
-	
+	$(window,document).on("click",function(){
+		if (isCollapsed==false) {
+		comboboxlist.slideUp('fast');
+		isCollapsed=true;		
+		}
+	});
 });
 
