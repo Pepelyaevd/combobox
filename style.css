@@ -1,5 +1,5 @@
 .combobox-row {
-	width:385px;
+	width:auto;
 	height:30px;
 	font-size:18px;
 	padding-left:15px;
@@ -27,13 +27,15 @@
 }
 .combobox-list {
 	display:none;
-	width:400px;
+	width:auto;
 	max-height:300px;
 	font-size:16px;
 	margin-top:5px;
 	border:1px solid lightgray;
 	font-family: Arial;
-	position: relative;
+	position: absolute;
+	background: white;
+	
 }
 
 .combobox-list-input {
@@ -74,11 +76,11 @@
 }
 
 .combobox-list .selected{
-	background-color:grey;
+	background-color:lightgray;
 }
 
 .combobox-list ul li:hover{
-background-color:lightgray;
+background-color:gray;
 cursor:pointer;
 }
 .combobox-list-text {
@@ -88,6 +90,14 @@ cursor:pointer;
 	padding:10px;
 	text-align:center;
 	cursor:default;
+}
+
+#combobox2 {
+	width:400px;
+}
+
+#combobox3 {
+	width:300px;
 }
 
 

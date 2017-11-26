@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
 	var options1=[{id:1, name:"Option1"},{id:2, name:"Option2"},{id:3, name:"Option3"},{id:4, name:"Option4"},{id:5, name:"A"},{id:6, name:"Option6"},{id:7, name:"Option7"}];
+	var options2=[{id:1, name:"Albania"},{id:2, name:"Angola"},{id:3, name:"Afghanistan"},{id:4, name:"Australia"},{id:5, name:"Austria"},{id:6, name:"Argentina"}];
 
 	function createCombobox (options,multipleSelect,container){
 		var selectedoptions=[];	
@@ -56,6 +57,7 @@ $(document).ready(function () {
 				selectedoptions=[selectedElem];	
 				comboboxlist.slideUp('fast');
 				isCollapsed=true;
+				$(this).addClass('selected');
 			}
 			else {	
 			var selectoptionindex=selectedoptions.indexOf(selectedElem);
@@ -125,7 +127,8 @@ $(document).ready(function () {
 		});
 	};
 	createCombobox(options1,true,$('#combobox'));
-	createCombobox(options1,false,$('#combobox2'));
+	createCombobox(options2,false,$('#combobox2'));
+	createCombobox(options2,false,$('#combobox3'));
 	
 });
 
